@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.vsaik.sjsumap.BuildingActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destination address:"
+            android:id="@+id/DestAddress"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/DestAddressValue"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_toEndOf="@+id/DestAddress"/>
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mode: Driving"
+            android:id="@+id/mode_driving"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="20dp"
+            android:layout_below="@+id/DestAddress"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distnace:"
+            android:id="@+id/driving"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_below="@+id/mode_driving"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/driving_value"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_toEndOf="@+id/driving"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration:"
+            android:id="@+id/driving_dur"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_below="@+id/driving"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:id="@+id/driving_dur_value"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_toEndOf="@+id/driving_dur"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mode: Walking"
+            android:id="@+id/mode_walking"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/driving_dur"
+            android:layout_toEndOf="@+id/walking_dur_value"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distnace:"
+            android:id="@+id/walking"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_below="@+id/mode_walking"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/walking_value"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_toEndOf="@+id/walking"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration:"
+            android:id="@+id/walking_dur"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_below="@+id/walking"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:id="@+id/walking_dur_value"
+            android:textColorHighlight="@color/colorAccent"
+            android:textSize="15dp"
+            android:layout_toEndOf="@+id/walking_dur"/>
+
+    </RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email" />
+
+</android.support.design.widget.CoordinatorLayout>
