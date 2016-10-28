@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:id="@+id/layout"
     tools:context="com.example.vsaik.sjsumap.MapActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -17,36 +18,57 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <AutoCompleteTextView
+            android:id="@+id/searchEditText"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Building Name"
+            />
+            <ImageButton
+                android:id="@+id/searchButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
+                android:background="@drawable/search"
+                />
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+
+
 
    <RelativeLayout
        android:layout_width="fill_parent"
        android:layout_height="fill_parent"
-       android:paddingBottom="@dimen/activity_vertical_margin"
-       android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="50dp"
        android:paddingRight="@dimen/activity_horizontal_margin"
        android:paddingTop="@dimen/activity_vertical_margin">
 
 
        <ImageView
            android:id="@+id/imageView1"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:src="@drawable/campusmap" />
+            android:alpha="0.5"
+           android:src="@drawable/campusmap"
+           android:adjustViewBounds="true"
+           android:gravity="center_vertical"
+           android:scaleType="fitXY"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           />
 
        <Button
            style="?android:attr/buttonStyleSmall"
-           android:layout_height="wrap_content"
-           android:layout_width="25dp"
            android:text=""
            android:background="@android:color/transparent"
            android:id="@+id/button1"
-           android:layout_marginTop="225dp"
+           android:layout_marginTop="165dp"
            android:layout_alignTop="@+id/imageView1"
            android:layout_alignParentStart="true"
-           android:layout_marginStart="42dp" />
+           android:layout_marginStart="42dp"
+           android:layout_height="65dp"
+           android:layout_width="29dp" />
 
        <Button
            style="?android:attr/buttonStyleSmall"
@@ -92,6 +114,11 @@
            android:layout_marginStart="18dp" />
 
    </RelativeLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/location"
+        android:alpha="1"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -99,6 +126,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@android:drawable/ic_dialog_email"
+        app:backgroundTint="@android:color/black" />
+
 
 </android.support.design.widget.CoordinatorLayout>

@@ -7,6 +7,7 @@ import java.util.List;
  * Created by vsaik on 10/27/2016.
  */
 public class AddressData {
+    public static final double angle = 38.5;
     public List<String> addressList = new ArrayList<String>();
 
     public AddressData(){

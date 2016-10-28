@@ -45,8 +45,8 @@ public class BuildingActivity extends AppCompatActivity  implements Result,Locat
         {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.INTERNET},10);
-                location=locationmanager.getLastKnownLocation(provider);
-                locationmanager.requestLocationUpdates(provider,0,0,this);
+                /*location=locationmanager.getLastKnownLocation(provider);
+                locationmanager.requestLocationUpdates(provider,0,0,this);*/
                 return;
             }else{
                 location=locationmanager.getLastKnownLocation(provider);
