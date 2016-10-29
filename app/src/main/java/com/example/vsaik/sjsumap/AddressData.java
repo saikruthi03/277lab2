@@ -17,7 +17,7 @@ public class AddressData {
     public static HashMap<String,Loc> hMap =
             new HashMap<String,Loc>();
     static{
-        hMap.put("KingLibrary",new Loc(80,100));
+        hMap.put("King Library",new Loc(80,100));
         hMap.put("Engineering Building" , new Loc(500,400));
         hMap.put("Yoshihiro Uchida Hall" , new Loc(300,500));
         hMap.put("Student Union" , new Loc(600,700));

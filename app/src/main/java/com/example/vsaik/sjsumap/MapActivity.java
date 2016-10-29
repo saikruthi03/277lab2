@@ -29,8 +29,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -114,6 +116,28 @@ public class MapActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Button searchButton = (Button) findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AutoCompleteTextView name1 = (AutoCompleteTextView) findViewById(R.id.searchEditText);
+                String name = name1.getText().toString();
+                Loc loc = null;
+                if(AddressData.hMap.containsKey(name))
+                    loc= AddressData.hMap.get(name);
+                if(loc != null)
+                    showPin(loc.x,loc.y);
+            }
+        });
+
+    }
+
+    private void showPin(int x,int y){
+        ImageView pin = (ImageView) findViewById(R.id.pin);
+        pin.setX(x);
+        pin.setY(y);
+        pin.setBackgroundResource(R.drawable.pin);
 
     }
 
