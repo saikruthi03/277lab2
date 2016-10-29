@@ -25,6 +25,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -50,9 +52,15 @@ public class MapActivity extends AppCompatActivity {
     public AddressData addressData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_map);
+
+        AutoCompleteTextView actv;
+        actv = (AutoCompleteTextView) findViewById(R.id.searchEditText);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,AddressData.places);
+        actv.setAdapter(adapter);
+
         addressData = new AddressData();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
         showMyLocation();
 
         button1 = (Button)findViewById(R.id.button1);
@@ -159,9 +167,16 @@ public class MapActivity extends AppCompatActivity {
 
         GradientDrawable drawable = new GradientDrawable();
         drawable.setColor(Color.RED);
-        drawable.setShape(GradientDrawable.OVAL);
-        drawable.setStroke(15, Color.RED);
-        drawable.setSize(50,25);
+        drawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+        drawable.setCornerRadius(30);
+        drawable.setSize(30,30);
+        GradientDrawable drawable2 = new GradientDrawable();
+        drawable2.setColor(Color.parseColor("#30ff0000"));
+        drawable2.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+        drawable2.setCornerRadius(100);
+        drawable2.setSize(100,100);
+
+        ImageView locationTrans = (ImageView) findViewById(R.id.locationtrans);
         ImageView location = (ImageView) findViewById(R.id.location);
         if(xi < 0)
             xi *= -1;
@@ -169,8 +184,11 @@ public class MapActivity extends AppCompatActivity {
             yi*= -1;
         float xCoord = yi + 10   ;
         float yCoord = 1220 - xi ;
-        location.setX(xCoord );
-        location.setY(yCoord);
+        location.setX(300 );
+        location.setY(500);
+        locationTrans.setX(300-35);
+        locationTrans.setY(500-35);
+        locationTrans.setBackground(drawable2);
         location.setBackground(drawable);
     }
 
