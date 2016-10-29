@@ -49,13 +49,12 @@
 
        <ImageView
            android:id="@+id/imageView1"
-            android:alpha="0.5"
+            android:alpha="0.7"
            android:src="@drawable/campusmap"
            android:adjustViewBounds="true"
            android:gravity="center_vertical"
-           android:scaleType="fitXY"
-           android:layout_width="fill_parent"
-           android:layout_height="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_width="wrap_content"
            />
 
        <Button
@@ -117,7 +116,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:id="@+id/location"
+        android:alpha="1"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/location1"
         android:alpha="1"/>
 
     <android.support.design.widget.FloatingActionButton

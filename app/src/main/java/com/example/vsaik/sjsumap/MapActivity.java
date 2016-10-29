@@ -7,8 +7,14 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.graphics.drawable.shapes.Shape;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -32,7 +38,7 @@ import static com.example.vsaik.sjsumap.R.id.toolbar;
 
 public class MapActivity extends AppCompatActivity {
 
-    static double a = 360 - 53.0872483;
+    static double a = 360 - 53.35;
     static double cos = Math.cos(a);
     static double sin = Math.sin(a);
 
@@ -104,13 +110,10 @@ public class MapActivity extends AppCompatActivity {
     }
 
     private void showMyLocation(){
-        double lat = 37.334652;
-        double lon = -121.884651;
 
-
-        double origX = -121.881289;
-        double origY = 37.335833;
-        transformCoordinates(origY,origX);
+        double origX = -121.880136;
+        double origY = 37.338424;
+       transformCoordinates(37.334359, -121.882999);
 
 
     }
@@ -118,37 +121,57 @@ public class MapActivity extends AppCompatActivity {
     private void transformCoordinates(double y,double x){
         double tranfX = ( x*cos + y*sin) ;
         double tranfY = (-x*sin + y*cos) ;
-        tranfX += 100.2223;
-        tranfY += 78.7690;
+
+        if( x > -121.87785){
+            tranfX += 76.32320;
+        }
+        else if( x > -121.87980){
+            tranfX += 76.32320;
+        }
+        else{
+            tranfX += 76.32320;
+        }
+
+        if(y > 37.33550) {
+            tranfY += 102.09841;
+
+        }
+        else if( y > 37.33250) {
+            tranfY += 102.09751;
+        }
+        else{
+            tranfY += 102.09708;
+        }
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
         int height = size.y;
 
-        //height_frames = 765339
-        //length_frames = 693692
+
 
         System.out.println("transX : "+round(tranfX,4) +"::transY : "+
                 round(tranfY,4) );
-        float xi = (float)(tranfX*1000000/6936)*width;
-        float yi = (float)(tranfY*1000000/7653)*height;
 
-        BitmapFactory.Options opt = new BitmapFactory.Options();
-        opt.inMutable = true;
-        Bitmap lMap = BitmapFactory.decodeResource(this.getResources(), R.drawable.loc,opt);
-        Canvas lCanvas = new Canvas(lMap);
+        float xi = (float)(tranfX*1000000/8462)*1200;
+        float yi = (float)(tranfY*1000000/6043)*900;
 
+
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setColor(Color.RED);
+        drawable.setShape(GradientDrawable.OVAL);
+        drawable.setStroke(15, Color.RED);
+        drawable.setSize(50,25);
         ImageView location = (ImageView) findViewById(R.id.location);
         if(xi < 0)
             xi *= -1;
         if(yi < 0)
             yi*= -1;
-        float xCoord = xi;
-        float yCoord = height - yi;
-        location.setX(xi);
+        float xCoord = yi + 10   ;
+        float yCoord = 1220 - xi ;
+        location.setX(xCoord );
         location.setY(yCoord);
-        location.setImageDrawable(new BitmapDrawable(getResources(), lMap));
+        location.setBackground(drawable);
     }
 
     public static double round(double value, int places) {
